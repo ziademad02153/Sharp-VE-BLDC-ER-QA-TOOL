@@ -11,10 +11,10 @@ type LanguageContextType = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  // Read initial language from localStorage or default to Arabic
+  // Read initial language from localStorage or default to English
   const [language, setLanguage] = useState<Language>(() => {
     const saved = localStorage.getItem('app-lang') as Language;
-    return saved && (saved === 'ar' || saved === 'en') ? saved : 'ar';
+    return saved && (saved === 'ar' || saved === 'en') ? saved : 'en';
   });
 
   const dir = language === 'ar' ? 'rtl' : 'ltr';
